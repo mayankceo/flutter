@@ -6,8 +6,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'  // Updated Android Gradle Plugin version
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath 'org.codehaus.groovy:groovy-all:3.0.9'  // Groovy का संस्करण
+    classpath 'com.android.tools.build:gradle:7.0.4'  // Gradle का संस्करण
     }
 }
 
