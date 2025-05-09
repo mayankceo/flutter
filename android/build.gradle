@@ -1,12 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.6.10' // Updated Kotlin version
+    ext.kotlin_version = '1.6.10'  // Updated Kotlin version
     repositories {
         google()
-        mavenCentral() // Replace jcenter() as jcenter is now deprecated
+        mavenCentral()  // Replace jcenter() with mavenCentral as jcenter is deprecated
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4' // Updated Android Gradle Plugin version
+        classpath 'com.android.tools.build:gradle:7.0.4'  // Updated Android Gradle Plugin version
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -14,7 +14,7 @@ buildscript {
 allprojects {
     repositories {
         google()
-        mavenCentral() // Replace jcenter() with mavenCentral
+        mavenCentral()  // Replace jcenter() with mavenCentral
     }
 }
 
