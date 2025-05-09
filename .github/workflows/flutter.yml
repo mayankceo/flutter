@@ -30,7 +30,7 @@ jobs:
 
       # Step 5: Upload APK
       - name: Upload APK
-        uses: actions/upload-artifact@v3  # Changed to v3
+        uses: actions/upload-artifact@v2  # Changed to v2
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
