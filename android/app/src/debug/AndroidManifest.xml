@@ -1,7 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.book_app">
+
     <!-- Flutter needs it to communicate with the running application
-         to allow setting breakpoints, to provide hot reload, etc.
-    -->
+         to allow setting breakpoints, to provide hot reload, etc. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name="io.flutter.embedding.android.FlutterApplication"
+        android:label="book_app"
+        android:icon="@mipmap/ic_launcher">
+        <!-- Other application-related configurations can go here -->
+    </application>
 </manifest>
