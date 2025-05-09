@@ -12,21 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Flutter SDK
-        run: |
-          sudo apt update
-          sudo apt install -y unzip curl xz-utils
-          curl -LO https://storage.googleapis.com/download.flutter.io/flutter_linux_3.19.0-stable.tar.xz
-          tar xf flutter_linux_3.19.0-stable.tar.xz
-          export PATH="$PWD/flutter/bin:$PATH"
-          flutter doctor
+      - name: Install Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0' # या कोई भी stable version
+
+      - name: Flutter Doctor
+        run: flutter doctor
 
       - name: Install dependencies
-        run: |
-          export PATH="$PWD/flutter/bin:$PATH"
-          flutter pub get
+        run: flutter pub get
 
       - name: Build APK
-        run: |
-          export PATH="$PWD/flutter/bin:$PATH"
-          flutter build apk --release
+        run: flutter build apk --release
