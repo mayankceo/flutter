@@ -14,11 +14,15 @@ jobs:
       # Step 1: Checkout code
       - uses: actions/checkout@v3
 
-      # Step 2: Set up Flutter
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.19.0'
+      # Step 2: Set up Flutter SDK manually
+      - name: Set up Flutter SDK
+        run: |
+          sudo apt update
+          sudo apt install -y unzip curl
+          curl -LO https://storage.googleapis.com/download.flutter.io/flutter_linux_3.19.0-stable.tar.xz
+          tar xf flutter_linux_3.19.0-stable.tar.xz
+          sudo mv flutter /usr/local/bin/flutter
+          flutter doctor
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -28,9 +32,9 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
 
-      # Step 5: Upload APK (Change to v2.2.4 for stability)
+      # Step 5: Artifact upload (Optional) - You can comment it out if you don't need to upload the APK
       - name: Upload APK
-        uses: actions/upload-artifact@v2.2.4  # Changed to v2.2.4 for stability
+        uses: actions/upload-artifact@v3
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
